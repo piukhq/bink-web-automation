@@ -7,6 +7,6 @@ Feature: Ensure a customer can use Bink Web to add an existing loyalty card to t
   @happy_path
   Scenario: Register as new Bink Web Wasabi customer & add my existing Wasabi Loyalty card to my Bink Web Account
 
-  Given I am on the Bink Web Wasabi Platform
+    Given I am on the Bink Web Wasabi Platform
     And I have registered to open an Account
     # Enter steps here

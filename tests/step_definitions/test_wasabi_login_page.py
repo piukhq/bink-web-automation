@@ -1,9 +1,9 @@
-from pytest_bdd import scenario, given, when, then, scenarios
+from pytest_bdd import given, scenarios
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
-scenarios("wasabi_ui/login/")
+scenarios("wasabi_login_ui/")
 
 
 @given("I am a Bink Web Wasabi Customer")

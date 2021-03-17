@@ -46,8 +46,8 @@ class ChannelDetails:
 
 
 WASABI = ChannelDetails(
-    channel_name="wasabi_ui",
-    bundle_id="com.wasabi_ui.bink.web",
+    channel_name="wasabi_login_ui",
+    bundle_id="com.wasabi_login_ui.bink.web",
     client_id="KY6ia4AvWwl9GXnKfPMqHJy7U3vUE2pSpDjJaqazZ0LZCHu5dj",
     organisation_id="Wasabi",
 
