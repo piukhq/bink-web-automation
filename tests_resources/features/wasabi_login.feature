@@ -8,13 +8,13 @@ Feature: Ensure existing Bink Web Wasabi customers can login into their Account
 
     Given I am a Bink Web Wasabi Customer
     And I am on the Bink Web Wasabi Login Page
-#    When I enter my "<email>" and "password" in the relevant fields
-#    And I click the Login button
-#    Then I am logged into my account
-#    And I can see the Wasabi Hero Image
-#    And I can see my Loyalty Card Number
-#    And I can see my Voucher History
-#    And I can see my Reward History
+    When I enter my "<email>" and "password" in the relevant fields
+    And I click the Login button
+    Then I am logged into my account
+    And I can see the Wasabi Hero Image
+    And I can see my Loyalty Card Number
+    And I can see my Voucher History
+    And I can see my Reward History
 
   @happy_path @wasabi
   Scenario Outline:  As an Existing Bink Web customer with a valid loyalty card & valid payment card, I want to login
