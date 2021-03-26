@@ -9,7 +9,7 @@ class LoginPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(TestData.BASE_URL)
+        self.driver.get(TestData.STAGING_URL)
 
         """ Page Actions """
 
@@ -18,7 +18,8 @@ class LoginPage(BasePage):
     PASSWORD = (By.XPATH, "//label[2]/input")
     LOGIN_BUTTON = (By.XPATH, "//button[contains(text(),'Login')]")
     PAGE_TITLE = (By.TAG_NAME, 'h1')
-    # NOT_AUTHENTICATED_TEXT = (By.CSS_SELECTOR, '/div[contains(text(),'Not authenticated')]')
+    PAYMENT_CARD_ADD_BUTTON = (By.CSS_SELECTOR, 'css=div.PaymentCardAdd_root__inner__1empu')
+
 
     """ Obtain the Page title """
 
@@ -31,6 +32,12 @@ class LoginPage(BasePage):
         self.perform_send_keys(self.EMAIL, email)
         self.perform_send_keys(self.PASSWORD, password)
         self.perform_click(self.LOGIN_BUTTON)
+
+
+
+
+    def add_payment_card(self):
+        self.perform_click(self.PAYMENT_CARD_ADD_BUTTON)
 
     def assert_authentication_text_visible(self, authenticated_messaged):
         return self.get_element_text(authenticated_messaged)
