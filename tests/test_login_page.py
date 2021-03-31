@@ -1,4 +1,6 @@
-from TestData.test_data import TestData
+""" This Login Class contains all functions test in relation to the Login Page """
+
+from test_data.test_data import TestData
 from pages.LoginPage import LoginPage
 from tests.base_class import BaseClass
 

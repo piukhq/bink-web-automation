@@ -1,3 +1,5 @@
+""" Confest contains all share fixtures that will be resued in all tests - i.e Browser set up"""
+
 from pytest import fixture
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager

@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from TestData.test_data import TestData
+from test_data.test_data import TestData
 from pages.BasePage import BasePage
 
 
@@ -9,16 +9,16 @@ class OnboardingPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(TestData.BASE_URL)
+        self.driver.get(TestData.STAGING_URL_DEBUG)
 
     """ Page Actions """
 
     GET_CARD_BUTTON = (By.XPATH, "//button[contains(text(),'Get a new card')]")
-    FIRST_NAME_ENROLMENT_INPUT_FIELD = (By.ID, "#bink-form-field-first_name")
-    LAST_NAME_ENROLMENT_INPUT_FIELD = (By.ID, "#bink-form-field-last_name")
-    EMAIL_ENROLMENT_INPUT_FIELD = (By.ID, "#bink-form-field-email")
-    DOB_ENROLMENT_INPUT_FIELD = (By.ID, "#bink-form-field-date_of_birth")
-    TERMS_AND_CONDITIONS_ENROLMENT = (By.ID, "#bink-form-field-retailer-terms-and-conditions")
+    FIRST_NAME_ENROLMENT_INPUT_FIELD = (By.ID, "bink-form-field-first_name")
+    LAST_NAME_ENROLMENT_INPUT_FIELD = (By.ID, "bink-form-field-last_name")
+    EMAIL_ENROLMENT_INPUT_FIELD = (By.ID, "bink-form-field-email")
+    DOB_ENROLMENT_INPUT_FIELD = (By.ID, "bink-form-field-date_of_birth")
+    TERMS_AND_CONDITIONS_ENROLMENT = (By.ID, "bink-form-field-retailer-terms-and-conditions")
     ADD_CARD_ENROLMENT_BUTTON = (By.XPATH, "//button[contains(text(),'Add my card')]")
 
     """ Click Get Card Button to Start Enrolment """
@@ -27,6 +27,9 @@ class OnboardingPage(BasePage):
         self.perform_click(self.GET_CARD_BUTTON)
 
     """ Complete & Submit the enrolment form """
+
+    def switch_to_onboarding_modal(self):
+        self.switch_to_element()
 
     def complete_enrolment_form_input_fields(self, first_name, last_name, email, dob):
         self.perform_send_keys(self.FIRST_NAME_ENROLMENT_INPUT_FIELD, first_name)
