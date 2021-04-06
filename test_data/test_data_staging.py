@@ -11,8 +11,11 @@ random_string = "".join(random.choice(string.ascii_letters) for i in range(lengt
 def get_expiry_date():
     months = list(range(1, 13))  # 12 months list
     year = list(range(2022, 2040))  # years list here
-    val = '{}/{:02d}'.format(random.choice(year), random.choice(months))
-    return val
+    val = '{:02d}/{}'.format(random.choice(months), random.choice(year))
+    first_half = val[:3]
+    last_half = val[5:]
+    two_digit_year = first_half + last_half
+    return two_digit_year
 
 
 card_expiry_date = get_expiry_date()
@@ -22,14 +25,8 @@ card_expiry_date = get_expiry_date()
 """ VISA CARD """
 
 VISA_CARD_NUMBER = "401288" + str(six_random_numbers) + "1813"
+VISA_CARD_NUMBER_SPREEDLY = '4111111111111111'
 VISA_EXPIRY_DATE = card_expiry_date
-VISA_CARD_NAME = 'Just For the' + random_string
+VISA_CARD_NAME = 'Justhe' + random_string
 
-# visa_payment_card = {
-#     "first_six_digits": "401288",
-#     "middle_six_digits": six_random_number,
-#     "last_four_digits": "1813",
-#     "name_on_card": "Avery",
-#     "month": 10,
-#     "year": 2026
-# }
+
