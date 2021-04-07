@@ -1,3 +1,7 @@
+""" As a Bink Wasabi Customer
+    I Want to Add One/Multiple MASTERCARD Payment Cards
+    So hat I can collect points """
+
 from pages.AccountPage import AccountPage
 from pages.LoginPage import LoginPage
 from test_data.test_data import TestData
@@ -5,7 +9,7 @@ from test_data.test_data_staging import VISA_EXPIRY_DATE, VISA_CARD_NAME, VISA_C
 from tests.base_class import BaseClass
 
 
-class PaymentCardVisaTests(BaseClass):
+class AddVisaPaymentCardTests(BaseClass):
 
     def test_add_one_payment_card(self):
         """ Enter Email & Click Login Button """
@@ -17,7 +21,7 @@ class PaymentCardVisaTests(BaseClass):
 
         login_page.perform_login(TestData.USERNAME, TestData.PASSWORD)
 
-        """ Add Visa Payment Card """
+        """ Add VISA Payment Card """
 
         account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
                                       VISA_CARD_NAME)
@@ -34,14 +38,14 @@ class PaymentCardVisaTests(BaseClass):
 
         login_page.perform_login(TestData.USERNAME, TestData.PASSWORD)
 
-        """ Add First Visa Payment Card """
+        """ Add First VISA Payment Card """
 
         account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
                                       VISA_CARD_NAME)
         customer_card_name = account_page.CUSTOMER_NAME_ON_CARD()
         assert customer_card_name == VISA_CARD_NAME
 
-        """ Add Second Visa Payment Card """
+        """ Add Second VISA Payment Card """
 
         account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
                                       VISA_CARD_NAME)
@@ -58,43 +62,23 @@ class PaymentCardVisaTests(BaseClass):
 
         login_page.perform_login(TestData.USERNAME, TestData.PASSWORD)
 
-        """ Add First Visa Payment Card """
+        """ Add First VISA Payment Card """
 
         account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
                                       VISA_CARD_NAME)
         customer_card_name = account_page.CUSTOMER_NAME_ON_CARD()
         assert customer_card_name == VISA_CARD_NAME
 
-        """ Add Second Visa Payment Card """
+        """ Add Second VISA Payment Card """
 
         account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
                                       VISA_CARD_NAME)
         customer_card_name = account_page.CUSTOMER_NAME_ON_CARD()
         assert customer_card_name == VISA_CARD_NAME
 
-        """ Add Third Visa Payment Card """
+        """ Add Third VISA Payment Card """
 
         account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
                                       VISA_CARD_NAME)
         customer_card_name = account_page.CUSTOMER_NAME_ON_CARD()
         assert customer_card_name == VISA_CARD_NAME
-
-    def test_delete_one_payment_card(self):
-        """ Enter Email & Click Login Button """
-
-        self.login_page = LoginPage(self.driver)
-        self.account_page = AccountPage(self.driver)
-        login_page = self.login_page
-        account_page = self.account_page
-
-        login_page.perform_login(TestData.USERNAME, TestData.PASSWORD)
-
-        """ Add Visa Payment Card """
-
-        account_page.add_payment_card(VISA_CARD_NUMBER_SPREEDLY, VISA_EXPIRY_DATE,
-                                      VISA_CARD_NAME)
-        customer_card_name = account_page.CUSTOMER_NAME_ON_CARD()
-        assert customer_card_name == VISA_CARD_NAME
-
-        """ Delete Payment Card """
-        # TBC

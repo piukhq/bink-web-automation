@@ -1,4 +1,7 @@
-""" This Login Class contains all functions test in relation to the Login Page """
+""" As a Bink Wasabi Customer
+    I Want to Login to my Bink Web Wasabi Account
+    So That I can access my account """
+
 
 from test_data.test_data import TestData
 from pages.LoginPage import LoginPage

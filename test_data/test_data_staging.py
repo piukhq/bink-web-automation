@@ -21,12 +21,25 @@ def get_expiry_date():
 card_expiry_date = get_expiry_date()
 
 # ----------------------------------------PAYMENT  CARDS ------------------------------------------------------- #
+INVALID_EXPIRY_DATE = '10-30'
 
 """ VISA CARD """
 
-VISA_CARD_NUMBER = "401288" + str(six_random_numbers) + "1813"
+VISA_CARD_NUMBER = "424242" + str(six_random_numbers) + "4242"
 VISA_CARD_NUMBER_SPREEDLY = '4111111111111111'
 VISA_EXPIRY_DATE = card_expiry_date
-VISA_CARD_NAME = 'Justhe' + random_string
+VISA_CARD_NAME = 'visame' + random_string
 
+""" AMEX """
 
+AMEX_CARD_NUMBER = "401288" + str(six_random_numbers) + "2023"
+AMEX_CARD_NUMBER_SPREEDLY = '378282246310005'
+AMEX_EXPIRY_DATE = card_expiry_date
+AMEX_CARD_NAME = 'amexme' + random_string
+
+""" MASTERCARD """
+
+MASTERCARD_CARD_NUMBER = "401288" + str(six_random_numbers) + "9111"
+MASTERCARD_CARD_NUMBER_SPREEDLY = '378282246310005'
+MASTERCARD_EXPIRY_DATE = card_expiry_date
+MASTERCARD_CARD_NAME = 'mastercardme' + random_string

@@ -1,9 +1,12 @@
-""" Confest contains all share fixtures that will be resued in all tests - i.e Browser set up"""
+""" Confest contains all share fixtures that will be reused in all tests - i.e Browser set up"""
 
 from pytest import fixture
+from pytest_bdd import given, when
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+
+
 
 
 @fixture(params=["chrome"], scope='function')
@@ -25,6 +28,11 @@ def pytest_addoption(parser):
 
     )
 
+@when("I click the 'continue' button")
+def step_impl():
+    init_d
+
+    raise NotImplementedError(u'STEP: When I click the \'continue\' button')
 #
 # @fixture(scope='class')
 # def setup(request):
