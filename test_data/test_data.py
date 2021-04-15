@@ -27,9 +27,10 @@ class TestData:
     DOB_ENROL = '10/04/1987'
 
     MAGIC_LINK_EMAIL = 'dwilliams@bink.com'
+    MAILTRAP_PASSWORD = 'Qabinktest'
+    MAILTRAP_EMAIL = "33cc7471de-08b687@inbox.mailtrap.io"
 
 
     """ Negative Data"""
 
     INVALID_USERNAME_FORMAT = 'IAMinvalid_'
-

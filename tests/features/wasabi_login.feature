@@ -4,22 +4,26 @@ Feature: Ensure existing Bink Web Wasabi customers can login into their Account
   I want to Login to my Bink Web Wasabi Account
   So that I can view my voucher history, reward history & payment cards
 
-  @login
-  Scenario Outline: As an Existing Bink Web customer with a valid loyalty card, I want to login to my account
 
-    Given I am on the Bink Web Wasabi Debug Platform
-    And I enter my <email_address> in the email address input field
-    And I enter my <password> in the password input field
-    When I click the 'login' button
+  Background: User is on the Bink Web Wasabi Platform
+    Given I am on the Bink Web Wasabi Platform
+
+
+  @login
+  Scenario Outline: As an Existing Bink Web customer, I want to login to my account using the Magic Link
+    Given I enter my <email_address> in the magic link email address field
+    And I click the 'continue' button
+    And I see the Magic Link email in my inbox
+#    When I click the link in the email
     Then I am logged into my account
     And I can see the Wasabi Hero Image
     And I can see my Loyalty Card Number
     And I can see my Stamp History
     And I can see my Reward History
+    #    And I enter my <password> in the password input field
+    #    When I click the 'login' button
 
-    Examples:
-      | email_address            | password   |
-      | dkw_binkweb@testbink.com | Password01 |
+
 
 #  @happy_path @wasabi
 #  Scenario Outline:  As an Existing Bink Web customer with a valid loyalty card & valid payment card, I want to login

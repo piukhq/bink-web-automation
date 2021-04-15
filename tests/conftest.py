@@ -28,11 +28,6 @@ def pytest_addoption(parser):
 
     )
 
-@when("I click the 'continue' button")
-def step_impl():
-    init_d
-
-    raise NotImplementedError(u'STEP: When I click the \'continue\' button')
 #
 # @fixture(scope='class')
 # def setup(request):
