@@ -4,6 +4,7 @@ Feature: Magic Link Existing Users
   I want to request a magic link
   So that I can login to my account
 
+  @hbar
   Scenario Outline: As an Existing Bink Web customer with no active payment cards, I want to login to my account using the Magic Link
     Given I am on the Bink Web Wasabi Platform
     And I enter my <email_address> in the magic link email address field
@@ -21,6 +22,7 @@ Feature: Magic Link Existing Users
       | dkw_binkweb@testbink.com |
 
 
+    @two
   Scenario Outline: As an Existing Bink Web customer with an Active Payment Card, I want to login to my account using the Magic Link
 
     Given I am on the Bink Web Wasabi Platform
@@ -39,7 +41,7 @@ Feature: Magic Link Existing Users
       | email_address            |
       | dkw_binkweb@testbink.com |
 
-
+  @unlinked
   Scenario Outline: As an Existing Bink Web customer with one Unlinked Payment Card, I want to login to my account using the Magic Link
 
     Given I am on the Bink Web Wasabi Platform

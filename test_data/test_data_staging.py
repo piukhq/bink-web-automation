@@ -43,3 +43,7 @@ MASTERCARD_CARD_NUMBER = "401288" + str(six_random_numbers) + "9111"
 MASTERCARD_CARD_NUMBER_SPREEDLY = '378282246310005'
 MASTERCARD_EXPIRY_DATE = card_expiry_date
 MASTERCARD_CARD_NAME = 'mastercardme' + random_string
+
+
+""" Existing User Card """
+XRP_CARD_NAME = 'XRP'

@@ -1,17 +1,32 @@
-import os
-from configparser import ConfigParser
+from behave import fixture
 
 from browser import Browser
-from helpers.helper_web import get_browser
+
+BEHAVE_DEBUG_ON_ERROR = False
 
 
+def setup_debug_on_error(userdata):
+    global BEHAVE_DEBUG_ON_ERROR
+    BEHAVE_DEBUG_ON_ERROR = userdata.getbool("BEHAVE_DEBUG_ON_ERROR")
+
+
+@fixture()
 def before_all(context):
     context.browser = Browser()
+    setup_debug_on_error(context.config.userdata)
 
 
+# def after_step(context, step):
+#     if BEHAVE_DEBUG_ON_ERROR and step.status == "failed":
+#         # -- ENTER DEBUGGER: Zoom in on failure location.
+#         # NOTE: Use IPython debugger, same for pdb (basic python debugger).
+#         import ipdb
+#         ipdb.post_mortem(step.exc_traceback)
+
+
+@fixture()
 def after_all(context):
     context.browser.close()
-
 
 # def before_all(context):
 #     config = ConfigParser()

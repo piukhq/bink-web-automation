@@ -34,6 +34,10 @@ class Browser(object):
     def visit_manually(self, url):
         self.driver.get(url)
 
+
+    def perform_click(self, selector):
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(selector)).click()
+
     def find_by_id(self, selector):
         """
         find a page element in the DOM
@@ -45,6 +49,14 @@ class Browser(object):
         find a page element in the DOM
         """
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, selector)))
+
+    def find_by_tag_name(self, selector):
+        """
+        :param selector:
+        :return:
+        """
+
+        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.TAG_NAME, selector)))
 
     def find_by_class(self, selector):
         """
@@ -84,13 +96,27 @@ class Browser(object):
         el = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, frame_ref)))
         self.driver.switch_to.frame(el)
 
+    def switch_to_add_card_iframe(self, ref):
+        """
+        :param frame_ref:
+        :return:
+        """
+        self.driver.switch_to.frame(ref)
+        # EC.frame_to_be_available_and_switch_to_it
+        # el = WebDriverWait(self.driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.CLASS_NAME, frame_ref)))
+        # self.driver.switch_to.frame(el)
+
     def get_magic_link(self, selector):
         magic_link_raw_text = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
         return magic_link_raw_text.text
 
     def assert_page_title(self, page_header):
-        WebDriverWait(self.driver, 20).until(EC.visibility_of_any_elements_located(page_header))
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_any_elements_located((By.TAG_NAME, page_header)))
+
+    def assert_user_is_logged_in(self, selector):
+        return WebDriverWait(self.driver, 20).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, selector)))
+
     # Helper functions that are used to identify the web locators in Selenium Python tutorial
 
     # def find_by_xpath(self, xpath):
