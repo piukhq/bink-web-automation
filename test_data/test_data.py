@@ -31,7 +31,6 @@ class TestData:
     MAILTRAP_EMAIL = "33cc7471de-f34439@inbox.mailtrap.io"
     TEMP_LOYALTY_NUMBER = '1048734113'
 
-
     """ Negative Data"""
 
     INVALID_USERNAME_FORMAT = 'IAMinvalid_'

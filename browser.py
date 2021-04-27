@@ -34,7 +34,6 @@ class Browser(object):
     def visit_manually(self, url):
         self.driver.get(url)
 
-
     def perform_click(self, selector):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(selector)).click()
 
@@ -89,6 +88,11 @@ class Browser(object):
         """
         self.driver.maximize_window()
 
+    def get_iframe_by_index(self, selector):
+        el = WebDriverWait(self.driver, 10).until(EC.frame_to_be_available_and_switch_to_it((selector)))
+        self.driver.switch_to.frame(el)
+
+
     def get_magic_link_iframe(self, frame_ref):
         """
         Switch to iframe by index
@@ -106,9 +110,12 @@ class Browser(object):
         # el = WebDriverWait(self.driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.CLASS_NAME, frame_ref)))
         # self.driver.switch_to.frame(el)
 
+    def switch_back(self):
+        self.driver.switch_to.default_content()
+
     def get_magic_link(self, selector):
         magic_link_raw_text = WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
+            EC.visibility_of_element_located((By.TAG_NAME, selector)))
         return magic_link_raw_text.text
 
     def assert_page_title(self, page_header):
