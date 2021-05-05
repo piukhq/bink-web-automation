@@ -56,7 +56,7 @@ def log_into_email_inbox(context):
     context.browser.find_by_xpath(
         "//div[@id='falconApp']/div/div[2]/div/div[2]/div/div/div[3]/div/div/span/a/span").click()
     time.sleep(2)
-    context.browser.find_by_xpath("//*[contains(text(), 'Magic Link Request')]").click()
+    context.browser.find_by_xpath("//*[contains(text(), 'Access your Wasabi Club account')]").click()
 
 
 @when("I click the Magic Link")
@@ -67,9 +67,9 @@ def click_magic_link(context):
     context.browser.get_magic_link_iframe('i6jjn6')
     magic_link_raw = context.browser.get_magic_link('h2')
     magic_link_url_link = magic_link_raw.split()[2]
-    i = 59
-    updated_ml = magic_link_url_link[:i] + magic_link_url_link[i + 1:]
-    context.browser.visit_manually(updated_ml)
+    # i = 59
+    # updated_ml = magic_link_url_link[:i] + magic_link_url_link[i + 1:]
+    context.browser.visit_manually(magic_link_url_link)
 
 
 @step("I can see the Wasabi Hero Image")
@@ -182,7 +182,7 @@ def step_impl(context):
     pass
 
 
-@step("I have a logged out of muy account")
+@step("I have a logged out of my account")
 def step_impl(context):
     """
     :type context: behave.runner.Context

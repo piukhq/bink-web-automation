@@ -17,3 +17,25 @@
 
 # Running Tests 🏃‍♂️
 ... coming soon
+
+1. Test Execution:
+    - Use `behave` command 
+    - Use markers '--tags' to filter tests by BDD tags
+    - The default environment is staging
+  
+2. To run Scenarios, examples:
+    - behave --tags=add_mastercard                     : Execute Add Card Behaviour for Mastercard
+    - behave --tags=magic_link                         : Execute Request Magic Link Behaviour for New & Existing Users
+    - behave --tags=login                              : Execute Login Behaviour for Existing Users
+    - behave --tags="magic_link mastercard"            : Execute Request Magic Link Behaviour for New & Existing Users & Add Card Behaviour for Mastercard 
+
+
+3. To run Features, examples:
+    - behave -i wasabi_login                           : Execute All Login Behaviour for Existing Users
+
+
+4. Reports (WIP)
+
+Currently - to generate a report add the following to the end of the command: -f allure - %allure_result_folder% ./features
+
+Example: behave --tags=magic_link -f allure -o %allure_result_folder% ./features

@@ -29,7 +29,12 @@ class TestData:
     MAGIC_LINK_EMAIL = 'dwilliams@bink.com'
     MAILTRAP_PASSWORD = 'Qabinktest'
     MAILTRAP_EMAIL = "33cc7471de-f34439@inbox.mailtrap.io"
+    VOUCHER_MAILTRAP = "cfab97b370-e08df7@inbox.mailtrap.io"
     TEMP_LOYALTY_NUMBER = '1048734113'
+
+    visa_email_mail_trap = '2705a98811-fc9a6e@inbox.mailtrap.io'
+    master_card_email_mail_trap = '80de19092e-34c8a3@inbox.mailtrap.io'
+    amex_email_mail_trap = '33cc7471de-f34439@inbox.mailtrap.io'
 
     """ Negative Data"""
 

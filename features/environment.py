@@ -1,19 +1,21 @@
-from behave import fixture
-
 from browser import Browser
 
 BEHAVE_DEBUG_ON_ERROR = False
+# from allure_behave.hooks import allure_report
 
 
-def setup_debug_on_error(userdata):
-    global BEHAVE_DEBUG_ON_ERROR
-    BEHAVE_DEBUG_ON_ERROR = userdata.getbool("BEHAVE_DEBUG_ON_ERROR")
+# def setup_debug_on_error(userdata):
+#     global BEHAVE_DEBUG_ON_ERROR
+#     BEHAVE_DEBUG_ON_ERROR = userdata.getbool("BEHAVE_DEBUG_ON_ERROR")
 
 
-@fixture()
-def before_all(context):
-    context.browser = Browser()
-    setup_debug_on_error(context.config.userdata)
+def before_scenario(context, scenario):
+    if scenario:
+        context.browser = Browser()
+        context.browser.maximize()
+        context.config.setup_logging()
+
+    # setup_debug_on_error(context.config.userdata)
 
 
 # def after_step(context, step):
@@ -24,9 +26,12 @@ def before_all(context):
 #         ipdb.post_mortem(step.exc_traceback)
 
 
-@fixture()
-def after_all(context):
-    context.browser.close()
+def after_scenario(context, scenario):
+    if scenario:
+        context.browser = Browser()
+        context.browser.close()
+        context.config.setup_logging()
+
 
 # def before_all(context):
 #     config = ConfigParser()
@@ -45,3 +50,5 @@ def after_all(context):
 #
 # def after_all(context):
 #     context.helperfunco.close()
+#
+# allure_report("path/to/result/dir")

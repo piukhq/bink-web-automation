@@ -31,8 +31,8 @@ def enter_master_card_name(context):
     """
     :type context: behave.runner.Context
     """
-    context.browser.find_by_xpath(
-        "//div[@id='root']/div/div/div[6]/div[2]/div/form/div/div[4]/input").send_keys(
+    context.browser.find_by_css(
+        "input[placeholder='Name on card']").send_keys(
         MASTERCARD_CARD_NAME)
 
 

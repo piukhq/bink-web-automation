@@ -1,6 +1,8 @@
 # Created by demetriswilliams at 28/04/2021
-Feature: # Enter feature name here
-  # Enter feature description here
+Feature: As an Existing Bink User
+  I want to obtain a magic link
+  So that I can register for Bink Web Wasabi
 
-  Scenario: # Enter scenario name here
+
+  Scenario: As an existing Wasabi Club User, I want to register for Wasabi Bink Web
     # Enter steps here

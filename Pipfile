@@ -6,7 +6,8 @@ name = "pypi"
 [packages]
 behave = "*"
 selenium = "*"
-allure-behave = "*"
+allure-behave = "==2.8.40"
+behave-html-formatter = "*"
 
 [dev-packages]
 

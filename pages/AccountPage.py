@@ -36,7 +36,7 @@ class AccountPage(BasePage):
     """ Add a Payment Card """
 
     def add_payment_card(self, card_number, expiry_date, name):
-        self.perform_click(self.ADD_PAYMENT_CARD_BUTTON)
+        self.perform_click_int(self.ADD_PAYMENT_CARD_BUTTON)
         # self.switch_to_iframe(self.SPREEDLY_IFRAME)
         self.switch_to_first_frame(0)
         self.perform_send_keys(self.CARD_NUMBER_FIELD, card_number)
@@ -44,8 +44,8 @@ class AccountPage(BasePage):
         self.perform_send_keys(self.CARD_EXPIRY_DATE, expiry_date)
         self.perform_send_keys(self.CARD_NAME, name)
         self.switch_to_relevant_parent_frame()
-        self.perform_click(self.ADD_PAYMENT_NEXT_BUTTON)
-        self.perform_click(self.ACCEPT_TERMS_BUTTON)
+        self.perform_click_int(self.ADD_PAYMENT_NEXT_BUTTON)
+        self.perform_click_int(self.ACCEPT_TERMS_BUTTON)
 
     def get_name_on_added_card(self):
         self.get_element_text(self.CUSTOMER_NAME_ON_CARD)
