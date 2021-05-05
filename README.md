@@ -10,9 +10,13 @@
 
 1. Clone it from this GitLab repository [QA GitLab](https://git.bink.com/dwilliams/bink-web-automation)
 2. Run \`pipenv install\` from the project's root directory.
-3. * Optional Step : For Django Web UI tests, install the appropriate browser and WebDriver executable
+3. *  Install the appropriate browser and WebDriver executable
     * Current Django tests use Chrome and
-     [chromedriver](https://chromedriver.chromium.org/downloads) 
+     [chromedriver](https://chromedriver.chromium.org/downloads)
+      if you are having issues with chromedriver download use brew (do this outside your virtual env): 
+      brew install --cask chromedriver
+      
+      
       
 
 # Running Tests 🏃‍♂️
