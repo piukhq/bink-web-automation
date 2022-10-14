@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.7 on darwin)" generated="20220412 17:54:33.103" rpa="false" schemaversion="2">
+<suite id="s1" name="Test2" source="/Users/parinitakhond/PycharmProjects/bink-web-rf-automation/testcases/test2.robot">
+<test id="s1-t1" name="Testing1">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://coinmarketcap.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<msg timestamp="20220412 17:54:33.935" level="INFO">Opening browser 'chrome' to base url 'https://coinmarketcap.com/'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20220412 17:54:45.888" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20220412 17:54:45.887" endtime="20220412 17:54:45.888"/>
+</kw>
+<msg timestamp="20220412 17:54:45.926" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 97
+Current browser version is 100.0.4896.75 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+</msg>
+<status status="FAIL" starttime="20220412 17:54:33.935" endtime="20220412 17:54:45.926"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20220412 17:54:45.927" endtime="20220412 17:54:45.927"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220412 17:54:45.927" endtime="20220412 17:54:45.927"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>//*[@id="__next"]/div/div[1]/div[2]/div/div/div[4]/div[2]/div[3]/div[1]/div/svg</arg>
+<arg>50</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" starttime="20220412 17:54:45.927" endtime="20220412 17:54:45.928"/>
+</kw>
+<status status="FAIL" starttime="20220412 17:54:33.934" endtime="20220412 17:54:45.928">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 97
+Current browser version is 100.0.4896.75 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+</status>
+</test>
+<status status="FAIL" starttime="20220412 17:54:33.106" endtime="20220412 17:54:45.930"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test2">Test2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
