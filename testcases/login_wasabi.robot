@@ -1,14 +1,15 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../resources/loginkeywords.robot
+Resource    ../keywords/loginkeywords.robot
+Resource    ../keywords/generalkeywords.robot
 
-Test Setup      Start Browser
+Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
 
 
 *** Test Cases ***
 LoginWasabi
-
+    Launch the Wasabi App
     Enter UserName
     Enter Password
     Click Login
