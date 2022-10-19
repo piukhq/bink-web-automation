@@ -1,4 +1,4 @@
-# Bink Web - UI Automation: PyTest-BDD & Selenium 🚀
+# Bink Web - UI Automation: Robot Framework🚀
 
 - This is a Python framework for the test automation of Bink's Web UI.
 - The framework has been designed using the Pytest-BDD plugin to implement the BDD approach.
@@ -8,12 +8,15 @@
 
 # Set Up 🏋️‍♀️
 
-1. Clone it from this GitLab repository [QA GitLab](https://git.bink.com/dwilliams/bink-web-automation)
-2. Run \`pipenv install\` from the project's root directory.
-3. * Optional Step : For Django Web UI tests, install the appropriate browser and WebDriver executable
-    * Current Django tests use Chrome and
-     [chromedriver](https://chromedriver.chromium.org/downloads) 
-      
+1. Clone it from this GitLab repository (https://github.com/binkhq/bink-web-automation)
+2. Then install the project dependencies:
 
+```shell
+poetry config <pypi-url> <pypi-user> <pypi-pass>
+poetry install
+```
 # Running Tests 🏃‍♂️
-... coming soon
+Use ``robot`` command to run the test and specify a folder where you need
+to generate the reports and mention the path of the testcases (.robot files)
+
+example: ``robot -d reports testcases/test_login_wasabi.robot``
