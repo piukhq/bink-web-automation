@@ -1,18 +1,21 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../resources/loginkeywords.robot
-Resource    ../resources/addpaymentcardkeywords.robot
+Resource    ../keywords/addpaymentcard_keywords.robot
+Resource    ../keywords/general_keywords.robot
+Resource    ../keywords/login_keywords.robot
 
-Test Setup    Start Browser
+
+Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
 
 *** Test Cases ***
 Add Paymentcard
+    Launch the Wasabi App
     Enter UserName
     Enter Password
     Click Login
-    Click Add Payment Button
-    Enter CardNumber
+    Add Payment Button
+    Enter Visa CardNumber
     Select Exp Month
     Select Exp Year
     Enter Name on Card

@@ -9,6 +9,6 @@ ${lastfournumber}   7548
 Click Delete Payment Card Button
     click element    ${click_deleteIcon}
     page should contain    Delete this card
-    input text    ${txt_enterlastfourdigits}    ${lastfournumber}
-    click element    ${btn_removeCard}
+    input text    ${txt_enter_four_digits}    ${lastfournumber}
+    click element    ${btn_remove_card}
     sleep   5

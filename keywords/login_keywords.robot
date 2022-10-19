@@ -23,7 +23,6 @@ Enter Password
 Click Login
     click element    ${btn_login}
 
-Verify LCD
-    title should be
+
 
 

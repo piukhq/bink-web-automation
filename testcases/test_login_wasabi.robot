@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../keywords/loginkeywords.robot
-Resource    ../keywords/generalkeywords.robot
+Resource    ../keywords/login_keywords.robot
+Resource    ../keywords/general_keywords.robot
 
 Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
