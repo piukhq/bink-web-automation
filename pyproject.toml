@@ -6,10 +6,10 @@ build-backend = "poetry.core.masonry.api"
 name = "bink-web-automation"
 version = "0.1.0"
 description = "automation framework"
-authors = ["<njames@bink.com>"]
+authors = ["Navya James <njames@bink.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "bink_web_automation"}]
+packages = [{include = "schedule.py"}]
 repository = "https://github.com/binkhq/bink-web-automation"
 
 
