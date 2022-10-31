@@ -3,9 +3,7 @@ Library    SeleniumLibrary
 Variables    ../pageobjects/locators.py
 
 *** Variables ***
-#${browser}    chrome
-#${url}    https://wasabi.staging.gb.bink.com/login?debugLogin=true
-${email}    QAtest+ws8@bink.com
+${email}    QAtest+ws11@bink.com
 ${password}    Password01
 
 
@@ -23,6 +21,9 @@ Enter Password
 Click Login
     click element    ${btn_login}
 
-
-
-
+View LCD
+    wait until element is visible    ${membership_card_wasabi_hero_img}    1s
+    wait until element is visible    ${logo_powered_by_bink}    1s
+    execute javascript    window.scrollTo(0,document.body.scrollHeight)
+    execute javascript    window.scrollTo(0,-document.body.scrollHeight)
+    capture page screenshot
