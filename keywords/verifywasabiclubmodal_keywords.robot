@@ -8,6 +8,7 @@ Verify Wasabi Club Modal
     sleep   2
     page should contain    Wasabi Club support
     sleep   2
+    scroll element into view    ${btn_logout}
     click element    ${link_wasabiclubfaq}
     get window handles  1
     sleep    2
@@ -21,4 +22,5 @@ Verify Wasabi Club Modal
     sleep    3
     click element    ${link_cookies_policy}
     sleep    2
-    click element   ${btn_click}
+    get window handles    1
+    click element   ${btn_wasabi_club_modal_close}
