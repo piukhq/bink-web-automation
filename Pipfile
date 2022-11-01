@@ -11,7 +11,6 @@ verify_ssl = true
 [dev-packages]
 flake8 = "*"
 
-
 [packages]
 requests = "*"
 pytest-bdd = "*"
@@ -20,9 +19,11 @@ selenium = "*"
 robotframework="*"
 robotframework-pythonlibcore="*"
 robotframework-seleniumlibrary="*"
+robotframework-selenium2library = "*"
 shared-config-storage = "*"
 apscheduler = "*"
 logger = "*"
 faker = "*"
+
 [requires]
 python_version = "3.9"

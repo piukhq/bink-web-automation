@@ -1,17 +1,16 @@
 *** Settings ***
 Library     Selenium2Library
-Resource    ../keywords/login_keywords.robot
 Resource    ../keywords/addpaymentcard_keywords.robot
-Resource    ../keywords/rewardhistory_keywords.robot
 Resource    ../keywords/general_keywords.robot
+Resource    ../keywords/login_keywords.robot
 Resource    ../keywords/deletepaymentcard_keywords.robot
+
 
 Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
 
 *** Test Cases ***
-# Scenario  Verify Reward History
-Verify Reward History
+Add Paymentcard
     Launch the Wasabi App
     Enter UserName
     Enter Password
@@ -22,8 +21,20 @@ Verify Reward History
     Select Exp Year
     Enter Name on Card
     Click Add Credit Debit card Button
-    View Reward History
-    View Redeemed voucher
-    View Cancelled voucher
-    View Expired voucher
+    Add Payment Button
+    Enter Master CardNumber
+    Select Exp Month
+    Select Exp Year
+    Enter Name on Card
+    Click Add Credit Debit card Button
+    Add Payment Button
+    Enter American Express CardNumber
+    Select Exp Month
+    Select Exp Year
+    Enter Name on Card
+    Click Add Credit Debit card Button
+    Verify Payment card added
     Delete Payment Card Visa
+    Delete Payment Card Mastercard
+    Delete Payment Card American Express
+    Verify Add Payment card from Add Credit/Debit card

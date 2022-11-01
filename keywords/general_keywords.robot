@@ -1,24 +1,26 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     Selenium2Library
 Library     OperatingSystem
 
 
 *** Variables ***
-${browser}  chrome
 ${url}  https:wasabi.staging.gb.bink.com/login?debugLogin=true
 
 
 *** Keywords ***
 
 Include Browser Drivers
-    Append To Environment Variable  PATH   ${EXECDIR}/resources/driver
-    Set Environment Variable  webdriver.chrome.driver  ${EXECDIR}/resources/driver/chromedriver
-    log   ${EXECDIR}/resources/driver/chromedriver
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    window-size\=1440,813
+    Create Webdriver    Chrome    chrome_options=${chrome_options}
 
 Launch the Wasabi App
-    open browser   ${url}  ${browser}
-    maximize browser window
+    Go To   ${url}
 
 
 Kill Browser
-    close browser
+    Close All Browsers

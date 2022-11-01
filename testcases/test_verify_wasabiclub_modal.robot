@@ -1,13 +1,15 @@
 *** Settings ***
-Library    SeleniumLibrary
-Resource    ../resources/loginkeywords.robot
-Resource    ../resources/verifywasabiclubmodalkeywords.robot
+Library     Selenium2Library
+Resource    ../keywords/login_keywords.robot
+Resource    ../keywords/general_keywords.robot
+Resource    ../keywords/verifywasabiclubmodal_keywords.robot
 
-Test Setup    Start Browser
+Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
 
 *** Test Cases ***
 Verify Wasabi Club Modal
+    Launch the Wasabi App
     Enter UserName
     Enter Password
     Click Login

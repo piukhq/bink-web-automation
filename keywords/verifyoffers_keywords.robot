@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library      Selenium2Library
 Variables    ../pageobjects/locators.py
 
 *** Keywords ***
@@ -9,5 +9,5 @@ Verify Offers
     mouse over    ${mouseover_offer}
     sleep    3
     mouse down on image    ${mouseover_offer}
-    click element    ${click_offer}
-    sleep    3
+    capture page screenshot
+    sleep    1

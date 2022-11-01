@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     Selenium2Library
 Resource    ../keywords/login_keywords.robot
 Resource    ../keywords/general_keywords.robot
 
@@ -13,6 +13,4 @@ LoginWasabi
     Enter UserName
     Enter Password
     Click Login
-
-
-
+    View LCD
