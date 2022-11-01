@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library      Selenium2Library
 Variables    ../pageobjects/locators.py
 
 *** Keywords ***
@@ -24,3 +24,4 @@ Verify Wasabi Club Modal
     sleep    2
     get window handles    1
     click element   ${btn_wasabi_club_modal_close}
+    click element   ${btn_close}

@@ -88,4 +88,3 @@ btn_earned_close = "xpath://*[@id='bink-app-root']/div/section[2]/div[2]/div[2]/
 
 # Footer Logo Powered by bink Elements
 logo_powered_by_bink = "xpath://a[normalize-space()='']//*[name()='svg']"
-

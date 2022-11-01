@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library      Selenium2Library
 Variables    ../pageobjects/locators.py
 
 *** Variables ***
@@ -57,7 +57,7 @@ Verify Payment card added
 
 Verify Add Payment card from Add Credit/Debit card
     wait until element is visible    ${btn_img_red}    1s
-    click element    ${btn_add_debit_credit_card}
+    click element    ${btn_add_payment_card}
     sleep    2
     click link    ${link_security_privacy}
     sleep    1

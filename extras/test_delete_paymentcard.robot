@@ -2,15 +2,15 @@
 Library     Selenium2Library
 Resource    ../keywords/login_keywords.robot
 Resource    ../keywords/general_keywords.robot
-Resource    ../keywords/verifymembershipcard_keywords.robot
+Resource    ../keywords/deletepaymentcard_keywords.robot
 
 Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
 
 *** Test Cases ***
-View Membershipcard Wasabi
+Delete Payment Card
     Launch the Wasabi App
     Enter UserName
     Enter Password
     Click Login
-    verify membershipcard wasabi
+    Click Delete Payment Card Button
