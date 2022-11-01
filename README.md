@@ -12,7 +12,22 @@
 2. Run \`pipenv install\` from the project's root directory.
 3. * Optional Step : For Django Web UI tests, install the appropriate browser and WebDriver executable
     * Current Django tests use Chrome and
-     [chromedriver](https://chromedriver.chromium.org/downloads) 
+     [chromedriver](https://chromedriver.chromium.org/downloads)
+
+
+# Installing the Right Chromedriver 🔨
+## MacOS
+1. Check chrome version: 
+```
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+```
+2. Download the correct [chromedriver](https://chromedriver.chromium.org/downloads) for that chrome version
+3. Move it into an executable path
+```
+mv /Downloads/chromedriver /usr/local/bin/chromedriver
+```
+4. Then run the tests
+
       
 
 # Running Tests 🏃‍♂️

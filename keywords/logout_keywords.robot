@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library      Selenium2Library
 Variables    ../pageobjects/locators.py
 
 
@@ -14,4 +14,3 @@ Logout Wasabi
     wait until element is visible    ${btn_logout}  3
     click button    ${btn_logout}
     sleep    2
-

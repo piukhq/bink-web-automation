@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     Selenium2Library
 Resource    ../keywords/login_keywords.robot
 Resource    ../keywords/general_keywords.robot
 Resource    ../keywords/transactionhistory_keywords.robot
@@ -24,4 +24,3 @@ Verify Transaction history
     Verify Payment card added
     View Transaction History
     Delete Payment Card Visa
-

@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library      Selenium2Library
 Variables    ../pageobjects/locators.py
 
 *** Keywords ***
@@ -26,4 +26,3 @@ View Transaction History
     page should contain    Ascot 4 Petty Cury £11.75
     capture page screenshot
     click element    ${click_close}
-
