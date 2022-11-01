@@ -6,7 +6,7 @@ Resource    ../keywords/login_keywords.robot
 Resource    ../keywords/deletepaymentcard_keywords.robot
 
 
-
+Suite Setup      Include Browser Drivers
 Test Teardown   Kill Browser
 
 *** Test Cases ***
