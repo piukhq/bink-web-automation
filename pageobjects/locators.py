@@ -38,7 +38,7 @@ btn_remove_card = "xpath://button[contains(text(),'Remove card')]"
 # Add Payment card from credit/debit card
 btn_img_red = "xpath://body/div[@id='bink-app-root']/div[1]/section[1]/div[2]/*[1]"
 btn_add_debit_credit_card = "xpath://*[@id='bink-app-root']/div/section[1]/div[2]/div[1]"
-link_security_privacy = "xpath://*[@id='bink-app-root']/div/div[2]/div[1]/div/form/a"
+link_security_privacy = "xpath://*[@id='bink-app-root']/div[1]/div[2]/div[1]/div[1]/form/a"
 btn_add_payment_card_modal_close = "xpath://*[@id='bink-app-root']/div/div[2]/button"
 
 
