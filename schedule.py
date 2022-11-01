@@ -1,55 +1,91 @@
+import os
+import string
+import random
+import requests
 import subprocess
-
-from apscheduler.schedulers.blocking import BlockingScheduler
+from datetime import datetime
+from azure.storage.blob import BlobClient, ContentSettings
 from apscheduler.triggers.cron import CronTrigger
+from apscheduler.schedulers.blocking import BlockingScheduler
 
-from azure_actions.blob_storage import upload_report_to_blob_storage
-from azure_actions.teams import post_to_teams
-from settings import (
-    ALERT_ON_FAILURE,
-    ALERT_ON_SUCCESS,
-    BLOB_STORAGE_DSN,
-    COMMAND,
-    LOCAL,
-    SCHEDULE,
-    TEAMS_WEBHOOK,
-    logger,
-)
+from settings import logger
+
+name = os.getenv("FRIENDLY_NAME")
+blob_storage_dsn = os.getenv("BLOB_STORAGE_DSN")
+teams_webhook = os.getenv("TEAMS_WEBHOOK")
+schedule = os.getenv("SCHEDULE")
+command = os.getenv("COMMAND")
+alert_on_success = os.getenv("ALERT_ON_SUCCESS", True)
+alert_on_failure = os.getenv("ALERT_ON_FAILURE", True)
 
 
-def run_test() -> None:
-    logger.debug(f"Starting automated test suite using command: {COMMAND}")
+def run_test():
     try:
-        process = subprocess.run(COMMAND.split(" "), timeout=2400, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    except subprocess.SubprocessError:
+        logger.debug(f"Starting automated test suite using command: {command}")
+        process = subprocess.run(command.split(" "), timeout=7200, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except subprocess.TimeoutExpired:
         logger.exception("Error in subprocess, skipping run")
+        print("Timeout occurred, skipping run")
         return
-
     logger.debug(process.stdout.decode())
+    print(process.stdout.decode())
     alert = False
     if process.returncode == 0:
         status = "Success"
-        if ALERT_ON_SUCCESS:
+        if alert_on_success:
             alert = True
     else:
         status = "Failure"
-        if ALERT_ON_FAILURE:
+        if alert_on_failure:
             alert = True
+    logger.debug("Uploading report.html to blob storage...")
+    url = upload("report.html")
 
-    if BLOB_STORAGE_DSN and not LOCAL:
-        logger.debug("Uploading report.html to blob storage...")
-        blob = upload_report_to_blob_storage("report.html")
-        logger.debug(f"Successfully uploaded report to blob storage: {blob.url}")
-        if alert:
-            post_to_teams(TEAMS_WEBHOOK, status, blob.url)
+    if alert:
+        post(teams_webhook, status, url)
+
+
+def upload(filename):
+    suffix = "".join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
+    blob = BlobClient.from_connection_string(
+        conn_str=blob_storage_dsn,
+        container_name="qareports",
+        blob_name=f"pytest_report/{datetime.now().strftime('%Y%m%d-%H%M')}-{suffix}.html",
+    )
+    with open(filename, "rb") as f:
+        blob.upload_blob(f, content_settings=ContentSettings(content_type="text/html"))
+    logger.debug(f"Successfully uploaded report to blob storage: {blob.url}")
+    return blob.url
+
+
+def post(webhook, status, url):
+    if status == "Success":
+        themeColor = "00FF00"
     else:
-        logger.debug("No BLOB_STORAGE_DSN set, skipping report upload and teams notification")
+        themeColor = "FF0000"
+    template = {
+        "@type": "MessageCard",
+        "@context": "http://schema.org/extensions",
+        "themeColor": themeColor,
+        "summary": f"{name} Test Results",
+        "Sections": [
+            {
+                "activityTitle": f"{name} Test Results",
+                "facts": [
+                    {"name": "Status", "value": status},
+                    {"name": "URL", "value": f"[{url}]({url})"},
+                ],
+                "markdown": True,
+            }
+        ],
+    }
+    return requests.post(webhook, json=template)
 
 
-def main() -> None:
+def main():
     scheduler = BlockingScheduler()
-    scheduler.add_job(run_test, trigger=CronTrigger.from_crontab(SCHEDULE))
-    logger.debug(f"Scheduled automated test run using cron expression: {SCHEDULE}")
+    scheduler.add_job(run_test, trigger=CronTrigger.from_crontab(schedule))
+    logger.debug(f"Scheduled automated test run using cron expression: {schedule}")
     scheduler.start()
 
 
