@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "bink-web-automation"
+version = "0.1.0"
+description = "Automation Framework for Bink Web"
+authors = ["navyaannajames <njames@bink.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "schedule.py"}]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[[tool.poetry.source]]
+name = "bink-pypi"
+url = "https://pypi.tools.uksouth.bink.sh/simple"
+default = false
+secondary = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+selenium = "^4.5.0"
+robotframework = "^6.0"
+robotframework-pythonlibcore = "^3.0.0"
+robotframework-seleniumlibrary = "^6.0.0"
+logger = "^1.4"
+azure-identity = "^1.11.0"
+arrow = "^1.2.3"
+robotframework-selenium2library = "^3.0.0"
+azure-keyvault = "^4.2.0"
+apscheduler = "^3.9.1"
+flake8 = "^5.0.4"
+azure-storage-blob = "^12.14.1"
+
+
+
+
