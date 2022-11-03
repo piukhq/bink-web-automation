@@ -22,7 +22,12 @@ alert_on_failure = os.getenv("ALERT_ON_FAILURE", True)
 def run_test():
     try:
         logger.debug(f"Starting automated test suite using command: {command}")
-        process = subprocess.run(command.split(" "), timeout=7200, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.run(
+            command.split(" "),
+            timeout=7200,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
     except subprocess.TimeoutExpired:
         logger.exception("Error in subprocess, skipping run")
         print("Timeout occurred, skipping run")

@@ -31,4 +31,6 @@ mv /Downloads/chromedriver /usr/local/bin/chromedriver
       
 
 # Running Tests 🏃‍♂️
+1. Run `export WEBSITE_URL="https://wasabi.staging.gb.bink.com/login?debugLogin=true"`
+2. Run `robot -d reports testcases/`
 ... coming soon

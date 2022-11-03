@@ -4,7 +4,7 @@ Library     OperatingSystem
 
 
 *** Variables ***
-${url}  https:wasabi.staging.gb.bink.com/login?debugLogin=true
+${url}      %{WEBSITE_URL}
 
 
 *** Keywords ***

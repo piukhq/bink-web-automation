@@ -16,7 +16,9 @@ btn_wasabi_club_modal_close = "xpath://button[@class='Modal_root__close-button__
 link_wasabi_club_faq = "xpath://body/div[@id='bink-app-root']/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]"
 link_wasabi_club_terms_conditions = "xpath://*[@id='bink-app-root']/div/div[1]/div[3]/div[1]/div/div/div[2]/a[2]"
 link_bink_faq = "xpath://body/div[@id='bink-app-root']/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[3]"
-link_bink_terms_conditions = "xpath://body/div[@id='bink-app-root']/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[4]"
+link_bink_terms_conditions = (
+    "xpath://body/div[@id='bink-app-root']/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[4]"
+)
 link_bink_privacy_policy = "xpath://body/div[@id='bink-app-root']/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[5]"
 link_cookies_policy = "xpath://body/div[@id='bink-app-root']/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[6]"
 btn_logout = "xpath://button[contains(text(),'Logout')]"
