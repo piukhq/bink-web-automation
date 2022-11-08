@@ -3,7 +3,7 @@ Library      Selenium2Library
 Variables    ../pageobjects/locators.py
 
 *** Variables ***
-${email}    QAtest+ws11@bink.com
+${email}    QAtest+binkwebregression@bink.com
 ${password}    Password01
 
 
