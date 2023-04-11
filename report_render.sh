@@ -1,16 +1,21 @@
 #!/bin/bash
 
-bolb_name=$(date +%s | awk '{ print strftime("%Y%m%d-%H%M", $1);  }')-$(echo $RANDOM | md5sum | head -c 6).html
-url="https://binkuksouthstaging.blob.core.windows.net/qareports/binkweb/${bolb_name}"
+BlobName=$(date +%s | awk '{ print strftime("%Y%m%d-%H%M", $1);  }')-$(echo $RANDOM | md5sum | head -c 6).html
+AccountName=$(echo $BLOB_STORAGE_DSN | awk -F ';' '{print $2}' | sed 's/AccountName=//g')
+AccountKey=$(echo $BLOB_STORAGE_DSN | awk -F ';' '{print $3}' | sed 's/AccountKey=//g')
+EndpointSuffix=$(echo $BLOB_STORAGE_DSN | awk -F ';' '{print $4}' | sed 's/EndpointSuffix=//g')
+ReportPath=$REPORT_DIRECTORY
+ContainerName=$REPORT_CONTAINER
+url="https://${AccountName}.blob.${EndpointSuffix}/${ContainerName}/${ReportPath}-${BlobName}"
 
 # look for report.html generated during pytest run
-while [ ! -f /tmp/reports/report.html ]; do
+while [ ! -f /tmp/report.html ]; do
     sleep 2
 done
 sleep 2
 
 # copy report to azureblob
-az storage blob upload --account-name $(echo $BLOB_STORAGE_DSN | awk -F ';' '{print $2}' | sed 's/AccountName=//g') --container-name qareports --name "binkweb/$bolb_name" --file /tmp/reports/report.html --account-key $(echo $BLOB_STORAGE_DSN | awk -F ';' '{print $3}' | sed 's/AccountKey=//g') --auth-mode key
+az storage blob upload --account-name $AccountName --container-name $ContainerName --name "$ReportPath-$BlobName" --file /tmp/report.html --account-key $AccountKey --auth-mode key
 
 # determine what message to POST to teams using the error.log
 if
